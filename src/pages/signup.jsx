@@ -6,7 +6,6 @@ import FormControl from '../utils/inputForms'
 const Signup = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   return (
     <>
@@ -37,8 +36,6 @@ const Signup = () => {
           <div>
             <FormControl 
               placeholder={'Password'}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               type={'password'}
             />
           </div>
