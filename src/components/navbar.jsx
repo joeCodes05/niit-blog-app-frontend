@@ -10,8 +10,8 @@ export default function Navbar() {
 
   return (
     <>
-      {location.pathname === '/login' || location.pathname === '/signup' ? null : <header className="bg-dark border-b border-b-gray-600">
-        <nav className="mx-auto flex max-w-8xl items-center justify-between p-3 lg:px-8" aria-label="Global">
+      {location.pathname === '/login' || location.pathname === '/signup' ? null : <header className="bg-dark border-b border-b-gray-600 fixed top-0 left-0 right-0 z-20">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between py-3 lg:px-0 px-3" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to={'/'} className="-m-1.5 p-1.5">
               <span className="sr-only">Swoosh</span>
