@@ -5,7 +5,7 @@ export const categoryData = [
   {title: "Cinema"},
   {title: "Design"},
   {title: "Food"},
-  {title: "Web Development"},
+  {title: "Web Dev."},
   {title: "Blockchain"},
   {title: "DevOps"},
   {title: "Python"},

@@ -36,7 +36,7 @@ const CategoryModal = () => {
                     const { title } = data;
                     return (
                       <div key={index} className='bg-secondary duration-500 hover:bg-primary cursor-pointer shadow hover:shadow-primary hover:shadow-lg rounded-xl h-[100px] w-full flex items-center justify-center'>
-                        <h4 className='text-white md:text-base text-sm font-normal text-center'>
+                        <h4 className='text-white text-base font-normal text-center'>
                           {title}
                         </h4>
                       </div>

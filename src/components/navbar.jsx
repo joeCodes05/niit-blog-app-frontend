@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../assets/images/28aOt4-LogoMakr.png'
 import {Button} from '../utils/buttons';
 import ProfileButton from '../utils/profileBtn';
 import { GoBell } from "react-icons/go";
+import AccountMenu from '../utils/accountMenuDropdown';
+import { DropdownContext } from '../context/dropdownContext';
 
 export default function Navbar() {
   const location = useLocation();
   const navigtor = useNavigate();
+  const { dropdownOpen, setDropdownOpen } = useContext(DropdownContext)
 
   return (
     <>
-      {location.pathname === '/login' || location.pathname === '/signup' ? null : <header className="bg-dark border-b border-b-gray-600 fixed top-0 left-0 right-0 z-10">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between py-3 lg:px-0 px-3" aria-label="Global">
+      {(location.pathname === '/login') || (location.pathname === '/signup') ? null : <header className="bg-dark border-b border-b-gray-600 fixed top-0 left-0 right-0 z-10">
+        <nav className="mx-auto relative flex max-w-7xl items-center justify-between py-3 lg:px-0 px-3" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to={'/'} className="-m-1.5 p-1.5">
               <span className="sr-only">Swoosh</span>
@@ -27,8 +30,11 @@ export default function Navbar() {
             <button className='ring-1 ring-gray-700 bg-secondary outline-none py-1 px-2.5 text-white rounded-md'>
               <GoBell />
             </button>
-            <ProfileButton />
+            <ProfileButton onClick={() => setDropdownOpen(!dropdownOpen)} />
           </div>
+
+          {/* account menu dropdown */}
+          {dropdownOpen ? <AccountMenu /> : null}
         </nav>
       </header>}
     </>

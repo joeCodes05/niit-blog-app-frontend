@@ -7,6 +7,7 @@ import Signup from "./pages/signup";
 import Post from "./pages/blog-single";
 import Profile from "./pages/profile";
 import CreatePost from "./pages/create";
+import AccountSettings from "./pages/settings";
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/post/:id" element={<Post />} />
-            <Route exact path="/profile/:id" element={<Profile />} />
+            <Route exact path="/account/profile" element={<Profile />} />
+            <Route exact path="/account/settings" element={<AccountSettings />} />
             <Route exact path="/post/create" element={<CreatePost />} />
           </Routes>
         </Router>

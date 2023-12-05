@@ -4,8 +4,7 @@ import Logo from '../assets/images/28aOt4-LogoMakr.png'
 import FormControl from '../utils/inputForms'
 
 const Signup = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
 
   return (
@@ -20,17 +19,9 @@ const Signup = () => {
           </div>
           <div>
             <FormControl 
-              placeholder={'First name'}
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              type={'text'}
-            />
-          </div>          
-          <div>
-            <FormControl 
-              placeholder={'Last name'}
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              placeholder={'Full name'}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
               type={'text'}
             />
           </div> 
