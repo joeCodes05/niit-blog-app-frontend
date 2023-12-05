@@ -11,7 +11,7 @@ import CreatePost from "./pages/create";
 const App = () => {
   return (
     <>
-      <main className="bg-dark min-h-screen overflow-hidden font-lato py-24">
+      <main className="bg-dark min-h-screen overflow-hidden font-lato">
         <Router>
           <Navbar />
           <Routes>
