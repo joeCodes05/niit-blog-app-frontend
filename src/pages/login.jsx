@@ -1,35 +1,78 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../assets/images/28aOt4-LogoMakr.png'
 import FormControl from '../utils/inputForms'
+import axios from 'axios'
+import { IoCloseOutline } from 'react-icons/io5'
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [input, setInputs] = useState({
+    email: "",
+    password: ""
+  })
+  const navigator = useNavigate();
+
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
+
+  const handleChange = (e) => {
+    setInputs(prev => ({...prev, [e.target.name]: e.target.value}));
+  }
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const {data} = await axios.post("/auth/login", input);
+      console.log(data);
+      setShowAlert(true);
+      setAlertType('success');
+      setAlertMessage('Welcome back, you have logged in successfully.');
+      setTimeout(() => {
+        navigator('/')
+      }, 3000);
+    } catch(err) {
+      setShowAlert(true);
+      setAlertType('error');
+      setAlertMessage(err.response.data.message);    }
+  }
 
   return (
     <>
       <div className="h-screen flex items-center justify-center">
-        <form action="#" className='w-[450px] lg:p-0 px-5 space-y-5'>
+        <form method='post' onSubmit={handleLogin} className='w-[450px] lg:p-0 px-5 space-y-5'>
           <div className="mx-auto w-fit">
             <Link to={'/'}>
               <span className="sr-only">Swoosh</span>
               <img className="h-14 w-auto" src={Logo} alt="swoosh logo" />
             </Link>
           </div>
+          {showAlert ? <div>
+            <div className={`rounded-md ${alertType === 'success' ? 'ring-lime-500 bg-lime-500 text-lime-500' : 'ring-red-500 bg-red-500 text-red-500'} ring-1 bg-opacity-10 py-4 px-3 flex items-center`}>
+              <div className='mr-auto'>
+                <div className="font-normal text-sm">
+                  {alertMessage}
+                </div> 
+              </div>
+              <div>
+                <IoCloseOutline onClick={() => setShowAlert(false)} className='text-2xl cursor-pointer' />
+              </div>
+            </div>
+          </div> : null}
           <div>
             <FormControl 
               placeholder={'expample@email.com'}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              onChange={handleChange}
               type={'email'}
             />
           </div>         
           <div>
             <FormControl 
               placeholder={'Password'}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              onChange={handleChange}
               type={'password'}
             />
           </div>

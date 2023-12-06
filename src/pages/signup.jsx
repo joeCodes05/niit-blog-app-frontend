@@ -59,9 +59,9 @@ const Signup = () => {
           </div>
           {/* alert message */}
           {showAlert ? <div>
-            <div className={`rounded-md ${alertType === 'success' ? 'ring-lime-500 bg-lime-500 text-lime-500' : 'ring-red-500 bg-red-500 text-red-500'} ring-1 bg-opacity-20 py-4 px-3 flex items-center`}>
+            <div className={`rounded-md ${alertType === 'success' ? 'ring-lime-500 bg-lime-500 text-lime-500' : 'ring-red-500 bg-red-500 text-red-500'} ring-1 bg-opacity-10 py-4 px-3 flex items-center`}>
               <div className='mr-auto'>
-                <div className="font-semibold">
+                <div className="font-normal text-sm">
                   {alertMessage}
                 </div> 
               </div>
