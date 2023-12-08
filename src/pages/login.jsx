@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../assets/images/28aOt4-LogoMakr.png'
 import FormControl from '../utils/inputForms'
-import axios from 'axios'
 import { IoCloseOutline } from 'react-icons/io5'
+import { AuthContext } from '../context/authContext'
 
 const Login = () => {
   const [input, setInputs] = useState({
@@ -11,6 +11,7 @@ const Login = () => {
     password: ""
   })
   const navigator = useNavigate();
+  const { login, currentUser } = useContext(AuthContext);
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState('');
@@ -24,18 +25,18 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const {data} = await axios.post("/auth/login", input);
-      console.log(data);
+      await login(input);
       setShowAlert(true);
       setAlertType('success');
-      setAlertMessage('Welcome back, you have logged in successfully.');
+      setAlertMessage(currentUser.message)
       setTimeout(() => {
         navigator('/')
       }, 3000);
     } catch(err) {
       setShowAlert(true);
       setAlertType('error');
-      setAlertMessage(err.response.data.message);    }
+      console.log(err.message);
+    }
   }
 
   return (

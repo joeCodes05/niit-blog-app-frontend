@@ -1,11 +1,14 @@
 import React, { useContext } from 'react'
 import { accountDropdownData } from '../constants/accountDropdownData'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoLogOutOutline } from "react-icons/io5";
 import { DropdownContext } from '../context/dropdownContext';
+import { AuthContext } from '../context/authContext';
 
 const AccountMenu = () => {
   const { setDropdownOpen } = useContext(DropdownContext);
+  const { logout } = useContext(AuthContext);
+  const navigator = useNavigate();
 
   return (
     <>
@@ -24,7 +27,11 @@ const AccountMenu = () => {
             </div>
           )
         })}
-        <button onClick={() => setDropdownOpen(false)} className='outline-none w-full p-1.5 rounded-md bg-transparent ring-1 ring-transparent text-gray-400 duration-500 hover:bg-secondary hover:ring-gray-700 flex gap-2 items-center'>
+        <button onClick={() => {
+          setDropdownOpen(false);
+          logout();
+          navigator('/login')
+        }} className='outline-none w-full p-1.5 rounded-md bg-transparent ring-1 ring-transparent text-gray-400 duration-500 hover:bg-secondary hover:ring-gray-700 flex gap-2 items-center'>
           <IoLogOutOutline />
           <div>Log Out</div>
         </button>

@@ -1,16 +1,18 @@
 import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../assets/images/28aOt4-LogoMakr.png'
-import {Button} from '../utils/buttons';
+import Button from '../utils/buttons';
 import ProfileButton from '../utils/profileBtn';
 import { GoBell } from "react-icons/go";
 import AccountMenu from '../utils/accountMenuDropdown';
 import { DropdownContext } from '../context/dropdownContext';
+import { AuthContext } from '../context/authContext';
 
 export default function Navbar() {
   const location = useLocation();
   const navigtor = useNavigate();
   const { dropdownOpen, setDropdownOpen } = useContext(DropdownContext)
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <>
@@ -23,13 +25,14 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex gap-3 lg:justify-end">
-            <Button
+            {currentUser?.data === undefined ? null : <Button
               onclick={() => navigtor('/post/create')}
               text={'New post'}
-            />
-            <button className='ring-1 ring-gray-700 bg-secondary outline-none py-1 px-2.5 text-white rounded-md'>
+            />}
+
+            {currentUser?.data === undefined ? null : <button className='ring-1 ring-gray-700 bg-secondary outline-none py-1 px-2.5 text-white rounded-md'>
               <GoBell />
-            </button>
+            </button>}
             <ProfileButton onClick={() => setDropdownOpen(!dropdownOpen)} />
           </div>
 

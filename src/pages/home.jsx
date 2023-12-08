@@ -12,12 +12,9 @@ const Home = () => {
         <CategoryModal />
 
         <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          <PostCard
+            detail={''}
+          />
         </div>
       </section>
     </>

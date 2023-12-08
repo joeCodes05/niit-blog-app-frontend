@@ -3,7 +3,7 @@ import { IoArrowBackOutline, IoCamera } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import CategoryDropButton from '../utils/categorySelect';
 import FormControl from '../utils/inputForms';
-import { PrimaryButton } from '../utils/buttons';
+import PrimaryButton from '../utils/primaryButton';
 
 const CreatePost = () => {
   const navigator = useNavigate();

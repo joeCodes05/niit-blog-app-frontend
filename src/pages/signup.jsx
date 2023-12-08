@@ -36,9 +36,10 @@ const Signup = () => {
         setShowAlert(true);
         setAlertType('success');
         setAlertMessage(data.data.message);
-        setTimeout(() => {
-          navigator('/login')
-        }, 3000);
+        console.log(data);
+        // setTimeout(() => {
+        //   navigator('/login')
+        // }, 3000);
       } catch(err) {
         setShowAlert(true);
         setAlertType('error');
