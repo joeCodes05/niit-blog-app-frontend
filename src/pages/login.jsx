@@ -11,7 +11,7 @@ const Login = () => {
     password: ""
   })
   const navigator = useNavigate();
-  const { login, currentUser } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState('');
@@ -28,14 +28,14 @@ const Login = () => {
       await login(input);
       setShowAlert(true);
       setAlertType('success');
-      setAlertMessage(currentUser.message)
+      setAlertMessage("Welcome back! You're logged in successfully.")
       setTimeout(() => {
         navigator('/')
-      }, 3000);
+      }, 1000);
     } catch(err) {
       setShowAlert(true);
       setAlertType('error');
-      console.log(err.message);
+      setAlertMessage(err?.response?.data?.message);
     }
   }
 
