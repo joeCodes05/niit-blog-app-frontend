@@ -4,15 +4,8 @@ import PrimaryButton from './primaryButton';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileButton = ({ onClick }) => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, lastName, firstName } = useContext(AuthContext);
   const navigator = useNavigate();
-
-  // split fullname to be like firstName and lastName
-  const fullName = currentUser?.data.full_name;
-  const tempArray = currentUser?.data === undefined ? null : fullName.split(' ');
-
-  const lastName = tempArray === null ? null : tempArray.pop();
-  const firstName = tempArray === null ? null : tempArray.join(' ');
 
   return (
     <>

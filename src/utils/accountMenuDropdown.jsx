@@ -12,7 +12,7 @@ const AccountMenu = () => {
 
   return (
     <>
-      <div className="absolute z-10 bg-dark space-y-2 top-full my-3 lg:mx-0 mx-3 right-0 ring-1 ring-gray-700 rounded-md p-2">
+      <div className="absolute z-10 bg-dark space-y-2 top-full -my-1 shadow lg:mx-0 mx-3 right-0 ring-1 ring-gray-700 rounded-md p-2">
         {accountDropdownData.map((data, index) => {
           const { title, path, icon } = data;
 

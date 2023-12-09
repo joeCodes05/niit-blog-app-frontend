@@ -8,14 +8,14 @@ const CategoryModal = () => {
 
   return (
     <>
-      <div className="ml-auto w-fit">
+      <div className="ml-auto w-fit mr-5 xl:mr-0">
         <button onClick={() => setModalOpen(true)} className='bg-transparent w-fit text-gray-500 duration-500 hover:text-white outline-none font-semibold flex items-center gap-2'>
           <div>Feed topic filter</div> <LuSettings2 />
         </button>
 
         {/* category modal */}
         {modalOpen ? <div className="fixed h-screen w-screen z-20 top-0 left-0 bg-dark bg-opacity-80">
-          <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-dark rounded-[15px] shadow ring-1 ring-gray-700 py-8 w-[350px] md:w-[400px] max-h-[500px] h-full overflow-hidden">
+          <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-dark rounded-[16px] shadow ring-1 ring-gray-700 py-8 w-[350px] md:w-[400px] max-h-[500px] h-full overflow-hidden">
             {/* close modal button */}
             <button onClick={() => setModalOpen(false)} className="absolute bg-white rounded-full h-[25px] w-[25px] flex items-center justify-center top-2 right-2">
               <IoCloseOutline className='text-dark' />
@@ -35,7 +35,7 @@ const CategoryModal = () => {
                   {categoryData.map((data, index) => {
                     const { title } = data;
                     return (
-                      <div key={index} className='bg-secondary duration-500 hover:bg-primary cursor-pointer shadow hover:shadow-primary hover:shadow-lg rounded-xl h-[100px] w-full flex items-center justify-center'>
+                      <div key={index} className='bg-secondary duration-500 hover:bg-primary cursor-pointer shadow hover:shadow-primary hover:shadow-lg rounded-[16px] h-[100px] w-full flex items-center justify-center'>
                         <h4 className='text-white text-base font-normal text-center'>
                           {title}
                         </h4>

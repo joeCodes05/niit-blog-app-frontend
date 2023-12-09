@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       {(location.pathname === '/login') || (location.pathname === '/signup') ? null : <header className="bg-dark border-b border-b-gray-600 fixed top-0 left-0 right-0 z-10">
-        <nav className="mx-auto relative flex max-w-7xl items-center justify-between py-3 lg:px-0 px-3" aria-label="Global">
+        <nav className="xl:mx-auto mx-5 relative flex max-w-7xl items-center justify-between py-3 lg:px-0 px-3" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to={'/'} className="-m-1.5 p-1.5">
               <span className="sr-only">Swoosh</span>

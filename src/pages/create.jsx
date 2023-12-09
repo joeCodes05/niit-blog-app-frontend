@@ -49,8 +49,9 @@ const CreatePost = () => {
                 <textarea name="postContent" id="postContent" cols="30" rows="7" placeholder='Share your thoughts' required className='p-2 rounded-md bg-secondary ring-1 ring-gray-700 w-full outline-none'></textarea>
               </div>
 
-              <div className='float-right'>
+              <div>
                 <PrimaryButton 
+                  width={'w-full'}
                   text={'Upload post'}
                 />
               </div>
