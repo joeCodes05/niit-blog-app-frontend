@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { LuSettings2 } from "react-icons/lu";
 import { IoCloseOutline } from "react-icons/io5";
 import { categoryData } from '../constants/categorydata';
+import { Link } from 'react-router-dom';
 
 const CategoryModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,13 +34,13 @@ const CategoryModal = () => {
               <div className="overflow-scroll category_modal h-full max-h-[400px] mt-2 overflow-y-auto overflow-x-hidden w-full px-5 py-3 pb-10">
                 <div className="grid grid-cols-3 gap-2 md:gap-4">
                   {categoryData.map((data, index) => {
-                    const { title } = data;
+                    const { title, path } = data;
                     return (
-                      <div key={index} className='bg-secondary duration-500 hover:bg-primary cursor-pointer shadow hover:shadow-primary hover:shadow-lg rounded-[16px] h-[100px] w-full flex items-center justify-center'>
+                      <Link to={`/?category=${path}`} key={index} className='bg-secondary duration-500 hover:bg-primary cursor-pointer shadow hover:shadow-primary outline-none hover:shadow-lg rounded-[16px] h-[100px] w-full flex items-center justify-center'>
                         <h4 className='text-white text-base font-normal text-center'>
                           {title}
                         </h4>
-                      </div>
+                      </Link>
                     )
                   })}
                 </div>
