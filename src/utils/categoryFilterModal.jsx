@@ -11,7 +11,7 @@ const CategoryModal = () => {
     <>
       <div className="ml-auto w-fit mr-5 xl:mr-0">
         <button onClick={() => setModalOpen(true)} className='bg-transparent w-fit text-gray-500 duration-500 hover:text-white outline-none font-semibold flex items-center gap-2'>
-          <div>Feed topic filter</div> <LuSettings2 />
+          <div>Category filter</div> <LuSettings2 />
         </button>
 
         {/* category modal */}
@@ -27,12 +27,12 @@ const CategoryModal = () => {
               <h1 className='text-white font-bold text-2xl text-center'>
                 Choose topics to read
               </h1>
-              <h3 className='text-gray-500 font-semibold text-lg text-center px-5'>
+              <h3 className='text-gray-500 leading-4 text-base text-center px-5'>
                 Pick topics you are interested in. You can always change these later.
               </h3>
 
               <div className="overflow-scroll category_modal h-full max-h-[400px] mt-2 overflow-y-auto overflow-x-hidden w-full px-5 py-3 pb-10">
-                <div className="grid grid-cols-3 gap-2 md:gap-4">
+                <div className="grid grid-cols-3 gap-2">
                   {categoryData.map((data, index) => {
                     const { title, path } = data;
                     return (

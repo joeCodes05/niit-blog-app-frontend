@@ -3,11 +3,13 @@ import { IoArrowBackOutline, IoCamera } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import CategoryDropButton from '../utils/categorySelect';
 import FormControl from '../utils/inputForms';
-import PrimaryButton from '../utils/primaryButton';
+import WhiteButton from '../utils/whiteButton';
 
 const CreatePost = () => {
   const navigator = useNavigate();
   const [postTitle, setPostTitle] = useState('');
+  const [postContent, setPostContent] = useState('');
+  const [category, setCategory] = useState('');
 
   return (
     <>
@@ -24,7 +26,10 @@ const CreatePost = () => {
         <div className="mt-10">
           <h1 className="text-white text-2xl font-bold">New Post</h1>
           <form action='#' className="mt-5">
-            <CategoryDropButton />
+            <CategoryDropButton
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
 
             <div className="mt-5 space-y-4">
               <div>
@@ -46,13 +51,12 @@ const CreatePost = () => {
               </div>
 
               <div>
-                <textarea name="postContent" id="postContent" cols="30" rows="7" placeholder='Share your thoughts' required className='p-2 rounded-md bg-secondary ring-1 ring-gray-700 w-full outline-none'></textarea>
+                <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} name="postContent" id="postContent" cols="30" rows="7" placeholder='Share your thoughts' required className='p-2 rounded-md bg-secondary ring-1 ring-gray-700 w-full outline-none'></textarea>
               </div>
 
               <div>
-                <PrimaryButton 
-                  width={'w-full'}
-                  text={'Upload post'}
+                <WhiteButton 
+                  text={'Create post'}
                 />
               </div>
             </div>

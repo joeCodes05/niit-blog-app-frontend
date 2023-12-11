@@ -4,8 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --lh: 1.3rem;
+} 
+
 .category_modal::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .category_modal::-webkit-scrollbar-track {
@@ -19,4 +23,12 @@
 
 .category_modal::-webkit-scrollbar-thumb:hover {
   background-color: #FFFFFF;
+}
+
+.post_card_text {
+  --max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+  padding-right: 1rem;
 }
